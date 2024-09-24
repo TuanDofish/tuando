@@ -6,25 +6,25 @@ from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 from sklearn.model_selection import train_test_split
 import math
 
-# Đọc dữ liệu
-data = pd.read_csv('Gold_Price.csv') 
-dt_train, dt_test = train_test_split(data, test_size=0.3, shuffle=True)
+# # Đọc dữ liệu
+# data = pd.read_csv('Gold_Price.csv') 
+# dt_train, dt_test = train_test_split(data, test_size=0.3, shuffle=True)
 
-# Chia dữ liệu
-X_train = dt_train.drop(['Date', 'Price'], axis=1) 
-y_train = dt_train['Price']
-X_test = dt_test.drop(['Date', 'Price'], axis=1)
-y_test = dt_test['Price']
+# # Chia dữ liệu
+# X_train = dt_train.drop(['Date', 'Price'], axis=1) 
+# y_train = dt_train['Price']
+# X_test = dt_test.drop(['Date', 'Price'], axis=1)
+# y_test = dt_test['Price']
 
-# Mô hình Linear Regression
-reg = LinearRegression().fit(X_train, y_train)
+# # Mô hình Linear Regression
+# reg = LinearRegression().fit(X_train, y_train)
 
-# Các hàm tính toán
-def NSE(y_test, y_predict):  # cang gan 1 cang tot
-    return (1 - (np.sum((y_predict - y_test) ** 2) / np.sum((y_test - np.mean(y_test)) ** 2)))
+# # Các hàm tính toán
+# def NSE(y_test, y_predict):  # cang gan 1 cang tot
+#     return (1 - (np.sum((y_predict - y_test) ** 2) / np.sum((y_test - np.mean(y_test)) ** 2)))
 
-def MAE(y_test, y_predict):  # cang nho cang tot
-    return mean_absolute_error(y_test, y_predict)
+# def MAE(y_test, y_predict):  # cang nho cang tot
+#     return mean_absolute_error(y_test, y_predict)
 
 # Giao diện người dùng với Streamlit
 st.title("Gold Price Prediction")
